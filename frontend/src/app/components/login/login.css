@@ -1,0 +1,71 @@
+main{
+    height: 100%;
+}
+
+.page {
+    position: relative;
+    min-height:100dvh;
+    overflow: hidden;
+}
+
+.bg {
+    position:absolute; 
+    inset:0;
+    background-image:url("/assets/fondo.png");
+    background-size:cover;
+    background-position:center;
+    filter:saturate(1.05);
+    transform:scale(1.02);
+}
+
+.card {
+    position: relative;
+    width: 400px;
+    padding: 30px;
+    border-radius: 22px;
+}
+
+.button{
+    border-radius: 12px;
+    padding: 11px 0 11px 0;
+}
+
+.btn-primary{
+    background-color: #068c32;
+}
+
+.inputs{
+    margin: 25px 0 20px 0;
+}
+
+.input{
+    border-radius: 15px;
+    padding: 11px 0 11px 11px;
+}
+
+.input:focus{
+    border-color:  rgb(6, 140, 50, 0.3);
+    box-shadow: 0 0 0 0.25rem rgb(6, 140, 50, 0.2);
+}
+
+.input::placeholder{
+    font-size: small;
+    font-style: italic;
+    color: rgb(0, 0, 0, 0.4);
+}
+
+.link{
+    font-size: 0.9rem;
+    text-decoration:none;
+    color: black;
+}
+
+.link:hover{
+    color: black;
+    text-decoration:underline;
+}
+
+.links{
+    margin-top: 15px;
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+<main class="page d-flex justify-content-center align-items-center">
+    <div class="bg bg-black"></div>
+    <section class="card border-0 shadow-lg" aria-labelledby="app-title">
+        <header class="col-auto">
+            <img src="/assets/logo.png" alt="UTEQ" class="img-fluid" />
+        </header>
+
+        <form class="form" autocomplete="on">
+            <label class="d-grid gap-2 inputs">
+                <input class="form-control border-2 input" type="text" name="usuario" placeholder="Usuario" required/>
+                <input class="form-control border-2 input" type="password" name="password" placeholder="Contraseña" required/>
+            </label>
+
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-primary border-0 button">Iniciar Sesión</button>
+                <button type="button" class="btn btn-dark button" id="crear-cuenta">Crear Cuenta</button>
+            </div>
+
+            <div class="d-grid links">
+                <a class="link" href="#" id="ext-open">¿Eres estudiante externo? Solicita credenciales</a>
+                <a class="link" href="#" id="forgot">¿Olvidaste tu contraseña?</a>
+            </div>
+        </form>
+    </section>
+
+    <div class="modal"></div>
+</main>
