@@ -1,0 +1,57 @@
+<main class="">
+    <div class="page m-4">
+        <button (click)="GoBack()" class="btn btn-primary">Atras</button>
+        <h3>Administracion de usuarios</h3>
+        <section class="sections users">
+            <h5>Lista de usuarios</h5>
+            <table class="table table-hover table-bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>@social</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="sections d-flex data-management ">
+            <div class="d-inline-flex target-horizontal w-50">
+                <i class="bi bi-file-earmark-arrow-up fs-4 m-2"></i>
+                <div class="p-1">
+                    <h6 class="m-0">Exportar informacion</h6>
+                    <p class="m-0">Formatos admitidos: .csv, .xlsx, .json, .xml</p>
+                </div>
+                <button class="btn btn-primary h-75" type="button">Exportar</button>
+            </div>
+            <div class="d-inline-flex target-horizontal w-50">
+                <i class="bi bi-file-earmark-arrow-down fs-4 m-2"></i>
+                <div class="p-1">
+                    <h6 class="m-0">Importar informacion</h6>
+                    <p class="m-0">Formatos admitidos: .csv, .xlsx, .json, .xml</p>
+                </div>
+                <button class="btn btn-primary h-75 " type="button">Importar</button>
+            </div>
+        </section>
+    </div>
+</main>

@@ -1,0 +1,22 @@
+.sections{
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    background-color: #058c33;
+    border-style: none;
+    margin: auto 10px auto auto;
+}
+
+.target-horizontal{
+    background-color: aliceblue;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.data-management{
+    gap: 20px;
+}
