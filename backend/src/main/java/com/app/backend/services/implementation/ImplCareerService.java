@@ -32,7 +32,7 @@ public class ImplCareerService implements ICareerService {
         BeanUtils.copyProperties(careerDTO, entity);
         if (careerDTO.getIdFacultad() != null) {
             facultyRepository.findById(careerDTO.getIdFacultad())
-                .ifPresent(entity::setFacultad); 
+                .ifPresent(entity::setFKCarreraFacultad);
         }
         Career savedEntity = careerRepository.save(entity);
         return convertToDto(savedEntity);
@@ -41,9 +41,9 @@ public class ImplCareerService implements ICareerService {
     private CareerDTO convertToDto(@NonNull Career entity) {
         CareerDTO dto = new CareerDTO();
         BeanUtils.copyProperties(entity, dto);
-        if (entity.getFacultad() != null) {
-            dto.setIdFacultad(entity.getFacultad().getIdFacultad());
-            dto.setNombreFacultad(entity.getFacultad().getNombreFacultad());
+        if (entity.getFKCarreraFacultad() != null) {
+            dto.setIdFacultad(entity.getFKCarreraFacultad().getIdFacultad());
+            dto.setNombreFacultad(entity.getFKCarreraFacultad().getNombreFacultad());
         }
         return dto;
     }

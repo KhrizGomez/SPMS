@@ -1,15 +1,9 @@
 package com.app.backend.entities.secondary;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -28,5 +22,12 @@ public class Career {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_facultad")
-    private Faculty facultad;
+    private Faculty FKCarreraFacultad;
+
+    @OneToMany(mappedBy = "FKInfoCarreraCoordinator", cascade = CascadeType.ALL)
+    private List<InfoCoordinator> FKInfoCoordinators;
+
+    @OneToMany(mappedBy = "FKInfoCarreraStudent", cascade = CascadeType.ALL)
+    private List<InfoStudent> FKInfoStudents;
+
 }

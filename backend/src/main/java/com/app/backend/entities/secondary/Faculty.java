@@ -31,6 +31,9 @@ public class Faculty {
     @Column(name = "fecha_creacion")
     private Date FechaCreacion; 
 
-    @OneToMany(mappedBy = "facultad", cascade = CascadeType.ALL)
-    private List<Career> carreras;
+    @OneToMany(mappedBy = "FKCarreraFacultad", cascade = CascadeType.ALL)
+    private List<Career> FKCarreras;
+
+    @OneToMany(mappedBy = "FKInfoFacultadDean", cascade = CascadeType.ALL)
+    private List<InfoDean> FKInfoDeans;
 }
