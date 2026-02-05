@@ -7,7 +7,7 @@ import lombok.Data;
 public class InfoCoordinatorDTO {
     private Integer IdUsuario;
 
-    private Career FKInfoCarreraCoordinator;
+    private Integer IdCarrera;
     private String OficinaAtencion;
     private Boolean Estado;
 }

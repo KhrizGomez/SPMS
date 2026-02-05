@@ -9,7 +9,7 @@ import java.util.Date;
 public class InfoDeanDTO {
     private Integer IdUsuario;
 
-    private Faculty FKInfoFacultadDean;
+    private Integer IdFacultad;
     private Date FechaNombramiento;
     private Boolean Estado;
 }

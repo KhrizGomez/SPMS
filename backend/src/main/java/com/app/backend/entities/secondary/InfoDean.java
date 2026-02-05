@@ -9,7 +9,11 @@ import java.util.Date;
 @Table(name = "info_decanos")
 public class InfoDean {
     @Id
+    @Column(name = "id_usuario")
+    private Integer idUsuario;
+
     @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     @JoinColumn(name = "id_usuario")
     private User FKDeanUser;
 

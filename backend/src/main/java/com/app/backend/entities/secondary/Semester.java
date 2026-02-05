@@ -1,12 +1,9 @@
 package com.app.backend.entities.secondary;
 
 import java.sql.Date;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.util.List;
+
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -29,4 +26,7 @@ public class Semester {
 
     @Column(name = "estado_activo")
     private Boolean EstadoActivo;
+
+    @OneToMany(mappedBy = "FKInfoSemesterStudent", cascade = CascadeType.ALL)
+    private List<InfoStudent> FKInfoStudents;
 }

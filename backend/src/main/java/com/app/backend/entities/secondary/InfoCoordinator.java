@@ -8,7 +8,11 @@ import lombok.Data;
 @Table(name = "info_coordinadores")
 public class InfoCoordinator {
     @Id
+    @Column(name = "id_usuario")
+    private Integer idUsuario;
+
     @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     @JoinColumn(name = "id_usuario")
     private User CoordinatorUser;
 
@@ -17,8 +21,8 @@ public class InfoCoordinator {
     private Career FKInfoCarreraCoordinator;
 
     @Column(name = "oficina_atencion")
-    private String OficinaAtencion;
+    private String oficinaAtencion;
 
     @Column(name = "estado")
-    private Boolean Estado;
+    private Boolean estado;
 }

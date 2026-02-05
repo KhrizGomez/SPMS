@@ -37,8 +37,8 @@ public class User {
     @Column(name = "fecha_registro")
     private Date FechaRegistro;
 
-    @OneToOne(mappedBy = "FKDeanUser", cascade = CascadeType.ALL)
-    private InfoDean FKInfoDean;
+//    @OneToOne(mappedBy = "FKDeanUser", cascade = CascadeType.ALL)
+//    private InfoDean FKInfoDean;
 
     @OneToOne(mappedBy = "CoordinatorUser", cascade = CascadeType.ALL)
     private InfoCoordinator FKInfoCoordinator;

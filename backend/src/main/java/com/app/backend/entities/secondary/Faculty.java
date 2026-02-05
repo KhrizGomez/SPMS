@@ -34,6 +34,6 @@ public class Faculty {
     @OneToMany(mappedBy = "FKCarreraFacultad", cascade = CascadeType.ALL)
     private List<Career> FKCarreras;
 
-    @OneToMany(mappedBy = "FKInfoFacultadDean", cascade = CascadeType.ALL)
-    private List<InfoDean> FKInfoDeans;
+//    @OneToMany(mappedBy = "FKInfoFacultadDean", cascade = CascadeType.ALL)
+//    private List<InfoDean> FKInfoDeans;
 }

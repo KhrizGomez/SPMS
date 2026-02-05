@@ -10,8 +10,8 @@ import java.util.Date;
 public class InfoStudentDTO {
     private Integer IdUsuario;
 
-    private Career FKInfoCarreraStudent;
-    private Semester FKInfoSemesterStudent;
+    private Integer IdCarrera;
+    private Integer IdSemestre;
     private Date FechaIngreso;
     private String EstadoAcademico;
 }
