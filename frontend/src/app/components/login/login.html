@@ -26,27 +26,98 @@
 
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-register">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Registro</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        <i class="bi bi-person-plus me-2"></i>Crear Nueva Cuenta
+                    </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nombre completo</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Juan Piguave">
+                    <form [formGroup]="registerForm">
+                        <!-- Información Personal -->
+                        <h6 class="section-title mb-3">
+                            <i class="bi bi-person-badge me-1"></i>Información Personal
+                        </h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="cedulaIdentidad" class="form-label">Cédula de Identidad <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control input" id="cedulaIdentidad" formControlName="cedulaIdentidad"
+                                    placeholder="Ej: 1234567890" [class.is-invalid]="isFieldInvalid('cedulaIdentidad')">
+                                @if (isFieldInvalid('cedulaIdentidad')) {
+                                    <div class="text-danger small mt-1">La cédula es requerida (mínimo 10 caracteres)</div>
+                                }
+                            </div>
+                            <div class="col-md-6">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control input" id="telefono" formControlName="telefono"
+                                    placeholder="Ej: 0991234567">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nombreUsuario" class="form-label">Nombres <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control input" id="nombreUsuario" formControlName="nombreUsuario"
+                                    placeholder="Ingrese sus nombres" [class.is-invalid]="isFieldInvalid('nombreUsuario')">
+                                @if (isFieldInvalid('nombreUsuario')) {
+                                    <div class="text-danger small mt-1">El nombre es requerido</div>
+                                }
+                            </div>
+                            <div class="col-md-6">
+                                <label for="apellidoUsuario" class="form-label">Apellidos <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control input" id="apellidoUsuario" formControlName="apellidoUsuario"
+                                    placeholder="Ingrese sus apellidos" [class.is-invalid]="isFieldInvalid('apellidoUsuario')">
+                                @if (isFieldInvalid('apellidoUsuario')) {
+                                    <div class="text-danger small mt-1">El apellido es requerido</div>
+                                }
+                            </div>
                         </div>
-                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Numero de cedula</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="1234567890">
+
+                        <hr class="my-4">
+
+                        <!-- Información de Contacto -->
+                        <h6 class="section-title mb-3">
+                            <i class="bi bi-envelope me-1"></i>Información de Contacto
+                        </h6>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="correoPersonal" class="form-label">Correo Personal <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control input" id="correoPersonal" formControlName="correoPersonal"
+                                    placeholder="correo@ejemplo.com" [class.is-invalid]="isFieldInvalid('correoPersonal')">
+                                @if (isFieldInvalid('correoPersonal')) {
+                                    <div class="text-danger small mt-1">El correo personal es requerido y debe ser válido</div>
+                                }
+                            </div>
+                            <div class="col-md-6">
+                                <label for="correoInstitucional" class="form-label">Correo Institucional <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control input" id="correoInstitucional" formControlName="correoInstitucional"
+                                    placeholder="correo@uteq.edu.ec" [class.is-invalid]="isFieldInvalid('correoInstitucional')">
+                                @if (isFieldInvalid('correoInstitucional')) {
+                                    <div class="text-danger small mt-1">El correo institucional es requerido y debe ser válido</div>
+                                }
+                            </div>
+                        </div>
+
+
+                        <!-- Alerta informativa -->
+                        <div class="alert alert-light border mt-4 mb-0" role="alert">
+                            <i class="bi bi-info-circle me-2 text-primary"></i>
+                            Los campos marcados con <span class="text-danger">*</span> son obligatorios.
+                            Su cuenta será revisada por un administrador antes de ser activada.
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Enviar</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-dark button" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary button" (click)="onRegister()" [disabled]="registerForm.invalid || isSubmitting">
+                        @if (isSubmitting) {
+                            <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                            Enviando...
+                        } @else {
+                            Enviar Solicitud
+                        }
+                    </button>
                 </div>
             </div>
         </div>

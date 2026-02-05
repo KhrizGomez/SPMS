@@ -1,5 +1,8 @@
 package com.app.backend.configs;
-import javax.sql.DataSource; 
+
+import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -38,10 +41,16 @@ public class SecondaryDbConfig {
     public LocalContainerEntityManagerFactoryBean secondaryEntityManagerFactory(
             @Qualifier("secondaryDataSource") DataSource dataSource,
             EntityManagerFactoryBuilder builder) {
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        properties.put("hibernate.hbm2ddl.auto", "update");
+        properties.put("hibernate.show_sql", "true");
+
         return builder
                 .dataSource(dataSource)
                 .packages("com.app.backend.entities.secondary") 
                 .persistenceUnit("secondary")
+                .properties(properties)
                 .build();
     }
 
