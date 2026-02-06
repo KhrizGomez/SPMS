@@ -121,3 +121,26 @@ main{
 .text-primary {
     color: #068c32 !important;
 }
+
+/* Switch de usuario externo */
+.switch-external {
+    width: 50px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.switch-external:checked {
+    background-color: #068c32;
+    border-color: #068c32;
+}
+
+.switch-external:focus {
+    border-color: rgb(6, 140, 50, 0.5);
+    box-shadow: 0 0 0 0.25rem rgb(6, 140, 50, 0.2);
+}
+
+.form-check-label .badge {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+}
+

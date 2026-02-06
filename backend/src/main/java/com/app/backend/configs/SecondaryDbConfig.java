@@ -43,7 +43,8 @@ public class SecondaryDbConfig {
             EntityManagerFactoryBuilder builder) {
         Map<String, Object> properties = new HashMap<>();
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        properties.put("hibernate.hbm2ddl.auto", "update");
+        // La BD secundaria (SGA) es de solo lectura, no modificar esquema
+        properties.put("hibernate.hbm2ddl.auto", "none");
         properties.put("hibernate.show_sql", "true");
 
         return builder
